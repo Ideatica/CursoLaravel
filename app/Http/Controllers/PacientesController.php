@@ -33,4 +33,14 @@ class PacientesController extends Controller
 
         return redirect()->route('pacientes.index');
     }
+
+    public function delete($id)
+    {
+        if($paciente = Paciente::find($id))
+        { 
+            $paciente->delete();
+            return redirect()->route('pacientes.index');
+        }
+        abort(404);
+    }
 }
