@@ -64,6 +64,22 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="pais_id" class="col-md-2 control-label">
+                                        Pais
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select name="pais_id" class="form-control">
+                                            @foreach(\App\Pais::orderBy('nombre', 'ASC')->get() as $pais)
+                                                <option value="{{ $pais->id }}" @if($pais->id == $paciente->pais_id) selected="selected" @endif>{{ $pais->nombre }}</option>
+                                            @endforeach                                             
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
                         <div class="row">

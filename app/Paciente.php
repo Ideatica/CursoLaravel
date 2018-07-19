@@ -12,7 +12,11 @@ class Paciente extends Model
         'primer_nombre',
         'segundo_nombre',
         'apellido_paterno',
-        'apellido_materno'
+        'apellido_materno',
+        'pais_id',
+        'comuna_id',
+        'calle',
+        'numeracion'
     ];
 
 	public function scopeSearch($query, $value)
@@ -26,5 +30,9 @@ class Paciente extends Model
 
     public function usuario(){
         return $this->belongsTo('App\User', 'user_id');
+    }
+
+    public function pais(){
+        return $this->belongsTo('App\Pais', 'pais_id');
     }
 }
