@@ -9,7 +9,7 @@
 
                 <div class="panel-body">
 
-                    <p> Resumen: </p>
+                    <p> Resumen de la aplicación: </p>
 
                     <br>
                     <p> Total pacientes: {{ \App\Paciente::all()->count() }} </p>
