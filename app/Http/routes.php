@@ -49,9 +49,9 @@ Route::group(['prefix' => 'pacientes'], function() {
 	]);
 
 	// Funcion Editar
-	Route::PUT('editar/{id}', [
-		'uses' => 'PacientesController@edit',
-		'as' => 'pacientes.edit'
+	Route::post('editar/{id}', [
+		'uses' => 'PacientesController@update',
+		'as' => 'pacientes.update'
 	]);
 
 	// Funcion Eliminar

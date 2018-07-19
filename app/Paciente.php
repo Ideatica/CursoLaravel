@@ -19,4 +19,8 @@ class Paciente extends Model
     {
         return $query->where('primer_nombre', 'LIKE', "%$value%");
     }
+
+    public function getFullNameAttribute(){
+        return $this->primer_nombre. ' '.$this->segundo_nombre. ' '. $this->apellido_paterno. ' '.$this->apellido_materno;
+    }
 }
