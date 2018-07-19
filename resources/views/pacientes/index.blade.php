@@ -22,6 +22,7 @@
                     <th>RUT</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
+                    <th>Añadido por</th>
                     <th class="text-center">Acciones</th>
                 </tr>
                 @foreach($pacientes as $paciente)
@@ -30,6 +31,7 @@
                     <td>{{ $paciente->rut }}</td>
                     <td>{{ $paciente->primer_nombre }} {{ $paciente->segundo_nombre }}</td>
                     <td>{{ $paciente->apellido_paterno }} {{ $paciente->apellido_materno }}</td>
+                    <td>@if($paciente->usuario){{ $paciente->usuario->name }}@endif
                     <td class="text-center">
                         <a href="{{ route('pacientes.edit', $paciente->id) }}" class="btn btn-xs btn-success">
                             <i class="fa fa-edit"></i>

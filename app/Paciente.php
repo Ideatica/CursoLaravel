@@ -23,4 +23,8 @@ class Paciente extends Model
     public function getFullNameAttribute(){
         return $this->primer_nombre. ' '.$this->segundo_nombre. ' '. $this->apellido_paterno. ' '.$this->apellido_materno;
     }
+
+    public function usuario(){
+        return $this->belongsTo('App\User', 'user_id');
+    }
 }

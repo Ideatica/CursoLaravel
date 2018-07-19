@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 use App\Paciente;
+use Auth;
 
 class PacientesController extends Controller
 {
@@ -29,9 +30,13 @@ class PacientesController extends Controller
 
     public function store(Request $request)
     {
+        $user = Auth::user();
+
         $paciente = new Paciente($request->all());
+        $paciente->user_id = $user->id;
         $paciente->save();
 
+        Flash::success('El paciente ha sido creado correctamente');
         return redirect()->route('pacientes.index');
     }
 
