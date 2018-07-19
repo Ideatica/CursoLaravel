@@ -72,8 +72,25 @@
                                     </label>
                                     <div class="col-md-4">
                                         <select name="pais_id" class="form-control">
+                                            <option value="0">- Seleccione un Pais</option>
                                             @foreach(\App\Pais::orderBy('nombre', 'ASC')->get() as $pais)
                                                 <option value="{{ $pais->id }}" @if($pais->id == $paciente->pais_id) selected="selected" @endif>{{ $pais->nombre }}</option>
+                                            @endforeach                                             
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="comuna_id" class="col-md-2 control-label">
+                                        Comuna
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select name="comuna_id" class="form-control">
+                                            <option value="0">- Seleccione una Comuna</option>    
+                                            @foreach(\App\Comuna::orderBy('nombre', 'ASC')->get() as $comuna)
+                                                <option value="{{ $comuna->id }}" @if($comuna->id == $paciente->comuna_id) selected="selected" @endif>{{ $comuna->nombre }}</option>
                                             @endforeach                                             
                                         </select>
                                     </div>
