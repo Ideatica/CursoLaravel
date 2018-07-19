@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Paciente: '.$paciente->fullName )
+
 @section('content')
 <div class="container">
     <div class="row">
