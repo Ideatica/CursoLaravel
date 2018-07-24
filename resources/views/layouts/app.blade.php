@@ -47,8 +47,9 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/') }}">Inicio</a></li>
+                    <li><a href="{{ route('/') }}">Inicio</a></li>
                     <li><a href="{{ route('pacientes.index') }}">Pacientes</a></li>
+                    <li><a href="{{ route('usuarios.index') }} " > Usuarios/Admin </a ></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

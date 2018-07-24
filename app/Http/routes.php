@@ -14,7 +14,7 @@
 // Ruta Home
 Route::get('/', [
 	'uses' => 'HomeController@home',
-	'as' => 'home'
+	'as' => '/'
 ]);
 
 // Rutas inicio sesión / registro
