@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'no-responder@cursolaravel.ideatica.cl', 'name' => 'CursoPHP'],
 
     /*
     |--------------------------------------------------------------------------
