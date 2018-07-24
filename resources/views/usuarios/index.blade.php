@@ -11,7 +11,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Correo Electronico</th>}
+                    <th>Correo Electronico</th>
                     <th>Ult. actualizacion</th>
                     <th class="text-center">Acciones</th>
                 </tr>
@@ -19,7 +19,7 @@
                 <tr>
                     <td>{{ $usuario->id }}</td>
                     <td>{{ $usuario->name }} </td>
-                    <td>{{ $usuario->mail }} </td>
+                    <td>{{ $usuario->email }} </td>
                     <td>{{ $usuario->updated_at->diffForHumans() }}</td>
                     <td class="text-center">
                         <a href="{{ route('usuarios.edit', $usuario->id) }}" class="btn btn-xs btn-success"  data-toggle="tooltip" title="Editar Paciente">
