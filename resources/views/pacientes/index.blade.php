@@ -37,10 +37,10 @@
                     <td>@if($paciente->usuario){{ $paciente->usuario->name }}@endif
                     <td>{{ $paciente->updated_at->diffForHumans() }}</td>
                     <td class="text-center">
-                        <a href="{{ route('pacientes.edit', $paciente->id) }}" class="btn btn-xs btn-success">
+                        <a href="{{ route('pacientes.edit', $paciente->id) }}" class="btn btn-xs btn-success"  data-toggle="tooltip" title="Editar Paciente">
                             <i class="fa fa-edit"></i>
                         </a>
-                        <a href="{{ route('pacientes.delete', $paciente->id) }}" class="btn btn-xs btn-danger">
+                        <a href="{{ route('pacientes.delete', $paciente->id) }}" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Eliminar Paciente">
                             <i class="fa fa-trash"></i>
                         </a>
                     </td>
