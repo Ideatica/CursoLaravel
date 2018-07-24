@@ -22,10 +22,10 @@
                     <td>{{ $usuario->email }} </td>
                     <td>{{ $usuario->updated_at->diffForHumans() }}</td>
                     <td class="text-center">
-                        <a href="{{ route('usuarios.edit', $usuario->id) }}" class="btn btn-xs btn-success"  data-toggle="tooltip" title="Editar Paciente">
+                        <a href="{{ route('usuarios.edit', $usuario->id) }}" class="btn btn-xs btn-success"  data-toggle="tooltip" title="Editar Usuario">
                             <i class="fa fa-edit"></i>
                         </a>
-                        <a href="{{ route('usuarios.delete', $usuario->id) }}" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Eliminar Paciente">
+                        <a href="{{ route('usuarios.delete', $usuario->id) }}" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Eliminar Usuario">
                             <i class="fa fa-trash"></i>
                         </a>
                     </td>
