@@ -59,7 +59,7 @@ Route::group(['prefix' => 'pacientes'], function() {
 		'uses' => 'PacientesController@delete',
 		'as' => 'pacientes.delete'
 	]);
-
+});
 	// Mantenedor de usuario
 Route::group(['prefix' => 'usuarios'], function() {
 
