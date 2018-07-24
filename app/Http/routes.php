@@ -60,4 +60,46 @@ Route::group(['prefix' => 'pacientes'], function() {
 		'as' => 'pacientes.delete'
 	]);
 
+	// Mantenedor de usuario
+Route::group(['prefix' => 'usuarios'], function() {
+
+	// Vista Index
+	Route::get('/', [
+		'uses' => 'UsuariosController@index',
+		'as' => 'usuarios.index'
+	]);
+
+	/* Vista usuario Crear
+	Route::get('crear', [
+		'uses' => 'UsuariosController@create',
+		'as' => 'usuarios.create'
+	]);
+
+	// Funcion usuario Guardar
+	Route::post('guardar', [
+		'uses' => 'UsuariosController@store',
+		'as' => 'usuarios.store'
+	]);
+	*/
+	// Vista usuario Editar
+	Route::get('editar/{id}', [
+		'uses' => 'UsuariosController@edit',
+		'as' => 'usuarios.edit'
+	]);
+
+	// Funcion usuario Editar
+	Route::post('editar/{id}', [
+		'uses' => 'UsuariosController@update',
+		'as' => 'usuarios.update'
+	]);
+
+	// Funcion usuario Eliminar
+	Route::get('eliminar/{id}', [
+		'uses' => 'UsuariosController@delete',
+		'as' => 'usuarios.delete'
+	]);
+
+
+
+
 });
