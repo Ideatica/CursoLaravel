@@ -99,6 +99,11 @@ Route::group(['prefix' => 'usuarios'], function() {
 		'as' => 'usuarios.delete'
 	]);
 
+	// Funcion Aprobar usuario
+	Route::get('aprobar/{id}', [
+		'uses' => 'UsuariosController@approve',
+		'as' => 'usuarios.approve'
+	]);
 
 
 
