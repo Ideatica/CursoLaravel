@@ -44,7 +44,7 @@ class UsuariosController extends Controller
 
         $usuario = User::findOrFail($id);
 
-        return view('pacientes.edit')
+        return view('usuarios.edit')
             ->with('usuario', $usuario);
     }
 
