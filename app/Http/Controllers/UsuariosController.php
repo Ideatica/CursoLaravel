@@ -51,10 +51,15 @@ class UsuariosController extends Controller
     public function update(Request $request, $id)
     {
         $usuario = User::findOrFail($id);
-        $usuario->fill($request->all());
+        $usuario->fill($request->all()); 
+        if($request->clave){
+            $usuario->password = bcrypt($request->clave);
+        }
+     
+
         $usuario->save();
 
-        Flash::success('El paciente ha sido actualizado');
+        Flash::success('El usuario ha sido actualizado');
         return redirect()->route('usuarios.index');
     } 
 
@@ -64,10 +69,10 @@ class UsuariosController extends Controller
         if($usuario = User::find($id))
         { 
             $usuario->delete();
-            Flash::success('El paciente ha sido eliminado correctamente');
+            Flash::success('El usuario ha sido eliminado correctamente');
             return redirect()->route('usuarios.index');
         }
-        Flash::error('El paciente seleccionado no existe');
+        Flash::error('El usuario seleccionado no existe');
         return redirect()->route('pacientes.index');
     }
 }

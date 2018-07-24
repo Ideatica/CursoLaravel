@@ -9,11 +9,11 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Editar Usuario</div>
                 <div class="panel-body">
-                    <form action="{{ route('usuarios.update', $usuario->id) }}" method="POST" class="form-horizontal">
+                    <form action="{{ route('usuarios.update', $usuario->id) }}" method="POST" class="form-horizontal" autocomplete="off">
                         {{ csrf_field() }}
 
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12"> 
                                 <div class="form-group">
                                     <label for="name" class="col-md-2 control-label">
                                         Nombre
@@ -36,11 +36,12 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="password" class="col-md-2 control-label">
+                                    <label for="clave" class="col-md-2 control-label">
                                         Contraseña
                                     </label>
-                                    <div class="col-md-8">
-                                        <input type="text" id="password" class="form-control" name="password" value="{{ old('password', $usuario->password) }}">
+                                    <div class="col-md-4">
+                                        <input type="password" id="clave" class="form-control" name="clave" >
+                                        <span class="help-block"> Dejar en blanco para no cambiar contraseña </span>
                                     </div>
                                 </div>
                             </div>                           
