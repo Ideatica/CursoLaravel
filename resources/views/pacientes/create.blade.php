@@ -66,15 +66,48 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-12 text-right">
-                                <button type="submit" class="btn btn-success">
-                                    <i class="fa fa-save"></i>
-                                    Guardar Paciente
-                                </button>
+                       
+                        <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="pais_id" class="col-md-2 control-label">
+                                        Pais
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select name="pais_id" class="form-control">
+                                            <option value="0">- Seleccione un Pais</option>
+                                            @foreach(\App\Pais::orderBy('nombre', 'ASC')->get() as $pais)
+                                                <option value="{{ $pais->id }}">
+                                                    {{ $pais->nombre }}</option>
+                                            @endforeach                                             
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="comuna_id" class="col-md-2 control-label">
+                                        Comuna
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select name="comuna_id" class="form-control">
+                                            <option value="0">- Seleccione una Comuna</option>    
+                                            @foreach(\App\Comuna::orderBy('nombre', 'ASC')->get() as $comuna)
+                                                <option value="{{ $comuna->id }}" 
+                                                    >{{ $comuna->nombre }}</option>
+                                            @endforeach                                             
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="col-md-12 text-right">
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fa fa-save"></i>
+                                        Guardar Paciente
+                                    </button>
+                                </div>
+                            </div>
                     </form>
                 </div>
             </div>
