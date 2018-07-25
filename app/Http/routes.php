@@ -64,6 +64,12 @@ Route::group(['prefix' => 'pacientes', 'middleware' => ['role:user|admin']], fun
 		'uses' => 'PacientesController@info',
 		'as' => 'pacientes.info'
 	]);
+
+		// Funcion Exportar
+	Route::get('exportar', [
+		'uses' => 'PacientesController@export',
+		'as' => 'pacientes.export'
+	]);
 });
 
 // Mantenedor de usuarios
@@ -117,4 +123,6 @@ Route::group(['prefix' => 'usuarios', 'middleware' => ['role:admin']], function(
 		'uses' => 'UsuariosController@export',
 		'as' => 'usuarios.export'
 	]);
+
+
 });
