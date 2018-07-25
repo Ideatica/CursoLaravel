@@ -9,10 +9,10 @@
         <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12 text-right">
-                        <button type="submit" class="btn btn-danger">
-                            <i class="fa fa-file-pdf-o"></i>
-                            Exportar a PDF
-                        </button>
+                            <a href="{{ route('pacientes.export', $paciente->id) }}" class="btn btn-danger">
+                                <i class="fa fa-file-pdf-o"></i>
+                                Exportar a PDF
+                            </a>
                     </div>
                 </div>
                 <br>        
