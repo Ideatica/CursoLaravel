@@ -58,6 +58,12 @@ Route::group(['prefix' => 'pacientes', 'middleware' => ['role:user']], function(
 		'uses' => 'PacientesController@delete',
 		'as' => 'pacientes.delete'
 	]);
+
+	// Funcion Consultar
+	Route::get('info/{id}', [
+		'uses' => 'PacientesController@info',
+		'as' => 'pacientes.info'
+	]);
 });
 
 // Mantenedor de usuarios
