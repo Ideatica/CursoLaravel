@@ -28,6 +28,12 @@
                         <a href="{{ route('usuarios.delete', $usuario->id) }}" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Eliminar Usuario">
                             <i class="fa fa-trash"></i>
                         </a>
+
+                        @if (!$usuario->hasRole('user'))
+
+                        <a href="{{ route('usuarios.approve', $usuario->id) }}" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Aprobar Usuario">
+                            <i class="fa fa-check"></i>
+                        </a> @endif
                     </td>
                 </tr>
                 @endforeach
