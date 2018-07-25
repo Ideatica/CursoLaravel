@@ -20,9 +20,8 @@ Route::get('/', [
 // Rutas inicio sesión / registro
 Route::auth();
 
-
 // Mantenedor de pacientes
-Route::group(['prefix' => 'pacientes'], function() {
+Route::group(['prefix' => 'pacientes', 'middleware' => ['role:user']], function() {
 
 	// Vista Index
 	Route::get('/', [
@@ -60,8 +59,9 @@ Route::group(['prefix' => 'pacientes'], function() {
 		'as' => 'pacientes.delete'
 	]);
 });
-	// Mantenedor de usuario
-Route::group(['prefix' => 'usuarios'], function() {
+
+// Mantenedor de usuarios
+Route::group(['prefix' => 'usuarios', 'middleware' => ['role:admin']], function() {
 
 	// Vista Index
 	Route::get('/', [
@@ -111,7 +111,4 @@ Route::group(['prefix' => 'usuarios'], function() {
 		'uses' => 'UsuariosController@export',
 		'as' => 'usuarios.export'
 	]);
-
-
-
 });

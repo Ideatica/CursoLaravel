@@ -10,7 +10,7 @@
             <table class="table">
                 <tr>
                     <th>ID</th>
-                    <th>Tipo de Usuario</th>
+                    <th>Roles</th>
                     <th>Nombre</th>
                     <th>Correo Electronico</th>
                     <th>Ult. actualizacion</th>
@@ -19,7 +19,15 @@
                 @foreach($usuarios as $usuario)
                 <tr>
                     <td>{{ $usuario->id }}</td>
-                    <td>{{ $usuario->rol }}</td>
+                    <td>
+                        @foreach($usuario->roles as $rol)
+                            @if($rol->name == 'admin')
+                                <span class="label label-danger">{{ $rol->display_name }}</span>
+                            @else
+                                <span class="label label-warning">{{ $rol->display_name }}</span>
+                            @endif
+                        @endforeach
+                    </td>
                     <td>{{ $usuario->name }} </td>
                     <td>{{ $usuario->email }} </td>
                     <td>{{ $usuario->updated_at->diffForHumans() }}</td>

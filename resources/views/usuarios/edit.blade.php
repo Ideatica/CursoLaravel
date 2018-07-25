@@ -42,7 +42,7 @@
                                         Rol de usuario
                                     </label>
                                     <div class="col-md-4">
-                                        <select name="roles[]" class="form-control">
+                                        <select name="roles[]" class="form-control" multiple="">
                                         @foreach(\App\Role::all() as $role)
                                             <option value="{{ $role->id }}">{{ $role->display_name }}</option>
                                         @endforeach

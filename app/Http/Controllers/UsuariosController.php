@@ -55,7 +55,10 @@ class UsuariosController extends Controller
         if($request->clave){
             $usuario->password = bcrypt($request->clave);
         }
-     
+
+        $usuario->roles()->sync([]);
+        if($request->roles)
+            $usuario->roles()->sync($request->roles);
 
         $usuario->save();
 
