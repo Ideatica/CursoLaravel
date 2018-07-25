@@ -106,5 +106,12 @@ Route::group(['prefix' => 'usuarios'], function() {
 	]);
 
 
+	// Funcion Exportar
+	Route::get('exportar', [
+		'uses' => 'UsuariosController@export',
+		'as' => 'usuarios.export'
+	]);
+
+
 
 });
