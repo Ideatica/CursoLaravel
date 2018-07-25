@@ -3,9 +3,19 @@
 @section('title', 'Paciente: '.$paciente->fullName )
 
 @section('content')
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fa fa-file-pdf-o"></i>
+                            Exportar a PDF
+                        </button>
+                    </div>
+                </div>
+                <br>        
             <div class="panel panel-default">
                 <div class="panel-heading">Formulario de Pacientes</div>
                 <div class="panel-body">
@@ -98,16 +108,8 @@
                             </div>
 
                         </div>
-                        <?php /*
-                        <div class="row">
-                            <div class="col-md-12 text-right">
-                                <button type="submit" class="btn btn-success">
-                                    <i class="fa fa-save"></i>
-                                    Guardar Paciente
-                                </button>
-                            </div>
-                        </div>
-                        */ ?>
+                        
+                     
 
                     </form>
                 </div>
