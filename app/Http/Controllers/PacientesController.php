@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 use App\Paciente;
 use Auth;
+use PDF;
 
 class PacientesController extends Controller
 {
@@ -77,6 +78,30 @@ class PacientesController extends Controller
 
         return view('pacientes.info')
             ->with('paciente', $paciente);
+    }
+
+
+    // Exportar a PDF
+    public function export($id){
+
+        $paciente = Paciente::findOrFail($id);
+
+        $render = view('pacientes.info')
+            ->with('paciente', $paciente)
+            ->render();
+
+        $pdf = PDF::loadHTML($render);
+        $pdf->setWarnings(false);
+
+        $pdf->setOptions([
+            'dpi' => 100,
+            'defaultPaperSize' => 'letter',
+            'isPhpEnabled' => true,
+            'defaultFont' => 'sans-serif'
+            // fontDir
+        ]);
+
+        return $pdf->stream('paciente_'.$paciente->id.'.pdf');
     }
 
 }
