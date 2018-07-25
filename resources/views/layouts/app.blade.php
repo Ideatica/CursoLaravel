@@ -49,7 +49,9 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('/') }}">Inicio</a></li>
                     <li><a href="{{ route('pacientes.index') }}">Pacientes</a></li>
-                    <li><a href="{{ route('usuarios.index') }} " > Usuarios/Admin </a ></li>
+                    @if (Auth::User()->hasRole('admin'))
+                        <li><a href="{{ route('usuarios.index') }} " > Usuarios/Admin </a ></li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->

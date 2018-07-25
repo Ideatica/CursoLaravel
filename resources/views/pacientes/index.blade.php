@@ -36,16 +36,18 @@
                     <td>@if($paciente->pais){{ $paciente->pais->nombre }}@endif
                     <td>@if($paciente->usuario){{ $paciente->usuario->name }}@endif
                     <td>{{ $paciente->updated_at->diffForHumans() }}</td>
-                    <td class="text-center">
+                    <td class="text-center"> 
                         <a href="{{ route('pacientes.info', $paciente->id) }}" class="btn btn-xs btn-info" data-toggle="tooltip" title="Consulta Formulario">
                             <i class="fa fa-file"></i>
                         </a>
                         <a href="{{ route('pacientes.edit', $paciente->id) }}" class="btn btn-xs btn-success"  data-toggle="tooltip" title="Editar Paciente">
                             <i class="fa fa-edit"></i>
                         </a>
-                        <a href="{{ route('pacientes.delete', $paciente->id) }}" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Eliminar Paciente">
-                            <i class="fa fa-trash"></i>
-                        </a>
+                        @if (Auth::User()->hasRole('admin'))
+                            <a href="{{ route('pacientes.delete', $paciente->id) }}" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Eliminar Paciente">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        @endif
                     </td>
                 </tr>
                 @endforeach
