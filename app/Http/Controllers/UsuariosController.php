@@ -8,6 +8,7 @@ use Laracasts\Flash\Flash;
 use App\User;
 use Auth;
 use Excel;
+use Mail;
 
 class UsuariosController extends Controller
 {
@@ -87,6 +88,13 @@ class UsuariosController extends Controller
                 if($rol_usuario = \App\Role::where('name', 'user')->first())
                 {
                     $usuario->attachRole($rol_usuario);
+
+                    Mail::queue('emails.aprobado', ['usuario' => $usuario], function ($message) use ($usuario) {
+                        $message->from('aprobacion@cursolaravel.ideatica.cl', 'CursoLaravel');
+                        $message->to($usuario->email);
+                        $message->subject('Tu cuenta ha sido aprobada');
+                    });
+
                     Flash::success('El usuario fue aprobado');
                     return redirect()->route('usuarios.index');
                 }

@@ -1,0 +1,1 @@
+Hola {{ $usuario->first_name }}, Tu cuenta en CursoLaravel ha sido aprobada

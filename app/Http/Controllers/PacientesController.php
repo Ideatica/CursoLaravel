@@ -86,7 +86,7 @@ class PacientesController extends Controller
 
         $paciente = Paciente::findOrFail($id);
 
-        $render = view('pacientes.info')
+        $render = view('pacientes.PDF')
             ->with('paciente', $paciente)
             ->render();
 
@@ -94,7 +94,7 @@ class PacientesController extends Controller
         $pdf->setWarnings(false);
 
         $pdf->setOptions([
-            'dpi' => 100,
+            //'dpi' => 100,
             'defaultPaperSize' => 'letter',
             'isPhpEnabled' => true,
             'defaultFont' => 'sans-serif'
