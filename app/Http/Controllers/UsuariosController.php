@@ -118,7 +118,7 @@ class UsuariosController extends Controller
                     $data[] = [
                         $user->name,
                         $user->email,
-                        $user->rol,
+                        ($user->rol ? $user->rol->display_name:''),
                         $user->created_at,
                         $user->update_at
                     ];
