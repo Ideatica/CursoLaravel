@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 use App\User;
 use Auth;
+use Excel;
 
 class UsuariosController extends Controller
 {
@@ -93,5 +94,37 @@ class UsuariosController extends Controller
         }
         Flash::error('El usuario seleccionado no existe');
         return redirect()->route('usuarios.index');
+    }
+
+    public function export()
+    {
+        Excel::create('Listado_Usuarios', function($excel){
+            $excel->sheet('Usuarios', function($sheet){
+
+                $data = [];
+                $headings = [
+                    'Nombre',
+                    'Correo electrónico',
+                    'Rol de usuario',
+                    'Fecha creación',
+                    'Últ. Actualizacion'
+                ];
+
+                $users = User::all();
+                foreach ($users as $user) {
+                    $data[] = [
+                        $user->name,
+                        $user->email,
+                        $user->rol,
+                        $user->created_at,
+                        $user->update_at
+                    ];
+                }
+                $sheet->fromArray($data, null, 'A1', false, false);
+                $sheet->prependRow(1, $headings);
+            });
+        })->download('xls');
+
+        return $pdf->stream('nombre_archivo.pdf');
     }
 }

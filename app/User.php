@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email',
+        'name', 'email'
     ];
 
     /**
@@ -27,8 +28,17 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public $dates = [
+        'created_at', 'updated_at',
+    ];
+
     public function roles()
     {
         return $this->belongsToMany('App\Role');
+    }
+
+    public function getRolAttribute(){
+        if($this->roles)
+            return $this->roles()->first();
     }
 }
