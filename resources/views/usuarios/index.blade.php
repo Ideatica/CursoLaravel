@@ -10,6 +10,7 @@
             <table class="table">
                 <tr>
                     <th>ID</th>
+                    <th>Tipo de Usuario</th>
                     <th>Nombre</th>
                     <th>Correo Electronico</th>
                     <th>Ult. actualizacion</th>
@@ -18,6 +19,7 @@
                 @foreach($usuarios as $usuario)
                 <tr>
                     <td>{{ $usuario->id }}</td>
+                    <td>{{ $usuario->rol }}</td>
                     <td>{{ $usuario->name }} </td>
                     <td>{{ $usuario->email }} </td>
                     <td>{{ $usuario->updated_at->diffForHumans() }}</td>
