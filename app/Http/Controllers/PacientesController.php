@@ -70,4 +70,13 @@ class PacientesController extends Controller
         Flash::error('El paciente seleccionado no existe');
         return redirect()->route('pacientes.index');
     }
+
+    public function info($id){
+
+        $paciente = Paciente::findOrFail($id);
+
+        return view('pacientes.info')
+            ->with('paciente', $paciente);
+    }
+
 }
