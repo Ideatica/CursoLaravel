@@ -48,8 +48,10 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('/') }}">Inicio</a></li>
+                    @if (Auth::User() && Auth::User()->hasRole('user'))
                     <li><a href="{{ route('pacientes.index') }}">Pacientes</a></li>
-                    @if (Auth::User()->hasRole('admin'))
+                    @endif
+                    @if (Auth::User() && Auth::User()->hasRole('admin'))
                         <li><a href="{{ route('usuarios.index') }} " > Usuarios/Admin </a ></li>
                     @endif
                 </ul>
