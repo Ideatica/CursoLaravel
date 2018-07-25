@@ -71,7 +71,7 @@ class UsuariosController extends Controller
             return redirect()->route('usuarios.index');
         }
         Flash::error('El usuario seleccionado no existe');
-        return redirect()->route('pacientes.index');
+        return redirect()->route('usuarios.index');
     }
 
     public function approve($id)
@@ -84,7 +84,7 @@ class UsuariosController extends Controller
                 {
                     $usuario->attachRole($rol_usuario);
                     Flash::success('El usuario fue aprobado');
-                    return redirect()->route('pacientes.index');
+                    return redirect()->route('usuarios.index');
                 }
             }else{
                 Flash::error('El usuario ya ha sido aprobado');
@@ -92,6 +92,6 @@ class UsuariosController extends Controller
             }
         }
         Flash::error('El usuario seleccionado no existe');
-        return redirect()->route('pacientes.index');
+        return redirect()->route('usuarios.index');
     }
 }

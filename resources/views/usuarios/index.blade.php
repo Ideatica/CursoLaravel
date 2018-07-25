@@ -13,7 +13,7 @@
                     <th>Nombre</th>
                     <th>Correo Electronico</th>
                     <th>Ult. actualizacion</th>
-                    <th class="text-center">Acciones</th>
+                    <th class="text-right">Acciones</th>
                 </tr>
                 @foreach($usuarios as $usuario)
                 <tr>
@@ -21,16 +21,15 @@
                     <td>{{ $usuario->name }} </td>
                     <td>{{ $usuario->email }} </td>
                     <td>{{ $usuario->updated_at->diffForHumans() }}</td>
-                    <td class="text-center">
+                    <td class="text-right">
 
                         @if(!$usuario->hasRole('user'))
-                        <a href="{{ route('usuarios.approve', $usuario->id) }}" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Aprobar Usuario">
+                        <a href="{{ route('usuarios.approve', $usuario->id) }}" class="btn btn-xs btn-success" data-toggle="tooltip" title="Aprobar Usuario">
                             <i class="fa fa-check"></i>
                         </a>
                         @endif
 
-                        
-                        <a href="{{ route('usuarios.edit', $usuario->id) }}" class="btn btn-xs btn-success"  data-toggle="tooltip" title="Editar Usuario">
+                        <a href="{{ route('usuarios.edit', $usuario->id) }}" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Editar Usuario">
                             <i class="fa fa-edit"></i>
                         </a>
                         <a href="{{ route('usuarios.delete', $usuario->id) }}" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Eliminar Usuario">
