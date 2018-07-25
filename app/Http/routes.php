@@ -66,7 +66,7 @@ Route::group(['prefix' => 'pacientes', 'middleware' => ['role:user|admin']], fun
 	]);
 
 		// Funcion Exportar
-	Route::get('exportar', [
+	Route::get('exportar/{id}', [
 		'uses' => 'PacientesController@export',
 		'as' => 'pacientes.export'
 	]);
