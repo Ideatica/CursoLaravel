@@ -83,7 +83,7 @@ class UsuariosController extends Controller
                 if($rol_usuario = \App\Role::where('name', 'user')->first())
                 {
                     $usuario->attachRole($rol_usuario);
-                    Flash::success('El usuario fue aprobado')
+                    Flash::success('El usuario fue aprobado');
                     return redirect()->route('pacientes.index');
                 }
             }else{
