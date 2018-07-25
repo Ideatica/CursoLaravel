@@ -34,6 +34,23 @@
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="roles" class="col-md-2 control-label">
+                                        Rol de usuario
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select name="roles[]" class="form-control">
+                                        @foreach(\App\Role::all() as $role)
+                                            <option value="{{ $role->id }}">{{ $role->display_name }}</option>
+                                        @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="clave" class="col-md-2 control-label">

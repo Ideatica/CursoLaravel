@@ -43,7 +43,6 @@ class UsuariosController extends Controller
     public function edit($id){
 
         $usuario = User::findOrFail($id);
-
         return view('usuarios.edit')
             ->with('usuario', $usuario);
     }
@@ -63,7 +62,6 @@ class UsuariosController extends Controller
         return redirect()->route('usuarios.index');
     } 
 
-
     public function delete($id)
     {
         if($usuario = User::find($id))
@@ -71,6 +69,27 @@ class UsuariosController extends Controller
             $usuario->delete();
             Flash::success('El usuario ha sido eliminado correctamente');
             return redirect()->route('usuarios.index');
+        }
+        Flash::error('El usuario seleccionado no existe');
+        return redirect()->route('pacientes.index');
+    }
+
+    public function approve($id)
+    {
+        if($usuario = User::find($id))
+        {
+            if(!$usuario->hasRole('user'))
+            {
+                if($rol_usuario = \App\Role::where('name', 'user')->first())
+                {
+                    $usuario->attachRole($rol_usuario);
+                    Flash::success('El usuario fue aprobado')
+                    return redirect()->route('pacientes.index');
+                }
+            }else{
+                Flash::error('El usuario ya ha sido aprobado');
+                return redirect()->route('usuarios.index');
+            }
         }
         Flash::error('El usuario seleccionado no existe');
         return redirect()->route('pacientes.index');
