@@ -3,10 +3,34 @@
 @section('title', 'Mantenedor de Usuarios')
 
 @section('content')
+<style type="text/css">
+    .btn-verde {
+        background-color: #088A08;
+        border-color: #088A08;
+        color : #fff;
+    }
+    .btn-verde:hover {
+        
+        color : #000;
+    }
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             @include('flash::message')
+
+             <div class="row">
+                <div class="col-md-12 text-right">
+
+                    <a href= "{{route('usuarios.export')}}" class ="btn btn-verde ">
+
+                        <i class="fa fa-file-excel-o" style="margin-right:10px"></i>  Exportar Excel  
+                                                   
+                    </a>          
+
+                </div>
+            </div>
+            <br>
             <table class="table">
                 <tr>
                     <th>ID</th>
@@ -33,7 +57,7 @@
                     <td>{{ $usuario->updated_at->diffForHumans() }}</td>
                     <td class="text-right">
 
-                        @if(!$usuario->hasRole('user'))
+                        @if(!$usuario->hasRole('user') && !$usuario->hasRole('admin'))
                         <a href="{{ route('usuarios.approve', $usuario->id) }}" class="btn btn-xs btn-success" data-toggle="tooltip" title="Aprobar Usuario">
                             <i class="fa fa-check"></i>
                         </a>

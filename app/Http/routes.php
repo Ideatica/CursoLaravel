@@ -21,7 +21,7 @@ Route::get('/', [
 Route::auth();
 
 // Mantenedor de pacientes
-Route::group(['prefix' => 'pacientes', 'middleware' => ['role:user']], function() {
+Route::group(['prefix' => 'pacientes', 'middleware' => ['role:user|admin']], function() {
 
 	// Vista Index
 	Route::get('/', [
