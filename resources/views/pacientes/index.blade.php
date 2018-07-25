@@ -37,6 +37,9 @@
                     <td>@if($paciente->usuario){{ $paciente->usuario->name }}@endif
                     <td>{{ $paciente->updated_at->diffForHumans() }}</td>
                     <td class="text-center">
+                        <a href="{{ route('pacientes.info', $paciente->id) }}" class="btn btn-xs btn-info" data-toggle="tooltip" title="Consulta Formulario">
+                            <i class="fa fa-file"></i>
+                        </a>
                         <a href="{{ route('pacientes.edit', $paciente->id) }}" class="btn btn-xs btn-success"  data-toggle="tooltip" title="Editar Paciente">
                             <i class="fa fa-edit"></i>
                         </a>
